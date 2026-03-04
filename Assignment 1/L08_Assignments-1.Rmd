@@ -160,7 +160,7 @@ pca_df$AGE_MEDIAN <- d_tree_rel$AGE_MEDIAN
 
 # Plot PCA result with ellipses by age group
 pca_df %>% 
-  ggplot(aes(x = PC1, y = PC2, color = factor(AGE_MEDIAN))) +
+  ggplot(aes(x = PC1, y = PC2, color = factor(AGE_MEDIAN),shape = factor(AGE_MEDIAN))) +
   geom_point() +
   labs(title = "PCA of dominant tree species composition",
        x = paste0("PC1 (", round(summary(pca_sp)$importance[2,1] * 100, 1), "%)"), 
@@ -189,7 +189,7 @@ nmds_scores$AGE_MEDIAN <- d_tree_rel$AGE_MEDIAN
 
 # Visualize the NMDS
 ggplot(nmds_scores, aes(x = MDS1, y = MDS2)) +
-  geom_point(aes(color = factor(AGE_MEDIAN))) +
+  geom_point(aes(color = factor(AGE_MEDIAN),shape = factor(AGE_MEDIAN))) +
   xlab("Axis 1") + 
   ylab("Axis 2") +
   theme_bw()
